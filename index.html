@@ -168,7 +168,8 @@ window.addEventListener("scroll", () => {
 
     <section class="contact" id="contact">
       <h2>Contact Us</h2>
-      <button class="btn">Live Location</button>
+     <button class="btn" onclick="openLiveLocation()">Live Location</button>
+
 
       <p><strong>Phone:</strong> 071 234 5678</p>
       <p><strong>Email:</strong> info@allinoneservices.co.za</p>
@@ -179,5 +180,26 @@ window.addEventListener("scroll", () => {
   <footer>
     <p>© 2026 Sebanang Service Center. All rights reserved.</p>
   </footer>
+  <script>
+function openLiveLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        const mapUrl = `https://www.google.com/maps?q=${lat},${lon}`;
+        window.open(mapUrl, "_blank");
+      },
+      function() {
+        alert("Location permission denied. Please enable location.");
+      }
+    );
+  } else {
+    alert("Geolocation not supported on this browser.");
+  }
+}
+</script>
+
 </body>
 </html>
