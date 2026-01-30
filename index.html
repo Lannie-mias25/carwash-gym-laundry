@@ -203,5 +203,16 @@ function openLiveLocation() {
 }
 </script>
 
+<script>
+function openDirections() {
+  const destination = "Sebanang Car Wash";
+  const url =
+    "https://www.google.com/maps/dir/?api=1&destination=" +
+    encodeURIComponent(destination);
+
+  window.open(url, "_blank");
+}
+</script>
+
 </body>
 </html>
