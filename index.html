@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sebanang | Car Wash • Gymnassium • Laundry</title>
+  <title>Sebanang | Car Wash • Gymnasium • Laundry</title>
+
   <style>
     body {
       margin: 0;
@@ -11,18 +12,21 @@
       background: #f4f6f8;
       color: #1f2937;
     }
+
     header {
       background: #0f172a;
       color: #fff;
       padding: 20px;
       text-align: center;
     }
+
     nav a {
       color: #e5e7eb;
       margin: 0 12px;
       text-decoration: none;
       font-weight: bold;
     }
+
     nav a:hover { color: #38bdf8; }
 
     .hero {
@@ -31,11 +35,6 @@
       background: linear-gradient(135deg, #2563eb, #0ea5e9);
       color: white;
     }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 15px;
-    }
-    .hero h2 { font-size: 2.2rem; margin-bottom: 10px; }
 
     .container {
       max-width: 1100px;
@@ -58,21 +57,36 @@
 
     .card h3 { margin-top: 0; }
 
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 18px;
-      background: #2563eb;
-      color: white;
+    /* BUTTON STYLES */
+    .btn, .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      height: 32px;
+      line-height: 1;
+      border: none;
+      cursor: pointer;
     }
 
+    .btn { background: #2563eb; color: white; }
     .btn:hover { background: #1d4ed8; }
 
-    .about, .contact {
-      margin-top: 60px;
+    .whatsapp-btn { background: #25D366; color: white; }
+    .whatsapp-btn:hover { background: #1ebe5d; }
+    .whatsapp-btn svg { width: 16px; height: 16px; fill: white; }
+
+    /* BUTTON ROW FLEX */
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -82,174 +96,129 @@
       background: #0f172a;
       color: #e5e7eb;
     }
+
+    /* RESPONSIVE BUTTONS */
+    @media (max-width: 500px) {
+      .btn-row {
+        flex-direction: column;
+      }
+
+      .btn, .whatsapp-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
+
 <body>
- <header>
+
+<header>
   <h1>Sebanang</h1>
   <nav>
-    <a href="#home" class="nav-link">Home</a>
-    <a href="#services" class="nav-link">Services</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#contact" class="nav-link">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<style>
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+<section class="hero" id="home">
+  <h2>Car Wash • Gymnasium • Laundry</h2>
+  <p>Convenience, quality, and care — all in one place.</p>
+</section>
 
-/* Optional: highlight active nav link */
-nav a.active {
-  color: #38bdf8;
-  border-bottom: 2px solid #38bdf8;
-  padding-bottom: 2px;
-}
-</style>
+<div class="container">
 
-<script>
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav a");
+  <section class="services" id="services">
 
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 60) { // adjust for header height
-      current = section.getAttribute("id");
-    }
-  });
+    <!-- CAR WASH -->
+    <div class="card">
+      <h3>Car Wash</h3>
+      <p>Professional exterior and interior cleaning using modern equipment.</p>
+      <div class="btn-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScPkSDHXUVKl_V0_Wf-sjanG_BprO16FvWS07PpimpGZ7iZEA/viewform"
+           target="_blank"
+           class="btn">Book a Wash</a>
 
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
-</script>
+        <a href="https://wa.me/27700000000?text=Hi%20Sebanang%2C%20I%20would%20like%20to%20book%20a%20service"
+           target="_blank"
+           class="whatsapp-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M19.11 17.36c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.29s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.2-.53-.34z"/>
+            <path d="M16 3C8.82 3 3 8.82 3 16c0 2.55.74 5.02 2.13 7.14L3 29l5.99-2.07A12.94 12.94 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm0 23.5c-2.24 0-4.44-.6-6.36-1.74l-.46-.27-3.55 1.23 1.17-3.46-.3-.48A10.44 10.44 0 015.5 16C5.5 10.21 10.21 5.5 16 5.5S26.5 10.21 26.5 16 21.79 26.5 16 26.5z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
 
+    <!-- GYM -->
+    <div class="card">
+      <h3>Gymnasium</h3>
+      <p>Fully equipped gym with cardio, strength training, and fitness programs.</p>
+      <div class="btn-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfnoPlZIE7aD4HCt6qC0_lVDLkTlIxXypWCl140vFLP2h_fYQ/viewform"
+           target="_blank"
+           class="btn">Join Gym</a>
 
-  <section class="hero" id="home">
-    <h2>Car Wash • Gymnasium • Laundry</h2>
-    <p>Convenience, quality, and care — all in one place.</p>
+        <a href="https://wa.me/27700000000?text=Hi%20Sebanang%2C%20I%20would%20like%20to%20book%20a%20service"
+           target="_blank"
+           class="whatsapp-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M19.11 17.36c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.29s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.2-.53-.34z"/>
+            <path d="M16 3C8.82 3 3 8.82 3 16c0 2.55.74 5.02 2.13 7.14L3 29l5.99-2.07A12.94 12.94 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm0 23.5c-2.24 0-4.44-.6-6.36-1.74l-.46-.27-3.55 1.23 1.17-3.46-.3-.48A10.44 10.44 0 015.5 16C5.5 10.21 10.21 5.5 16 5.5S26.5 10.21 26.5 16 21.79 26.5 16 26.5z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- LAUNDRY -->
+    <div class="card">
+      <h3>Laundry</h3>
+      <p>Fast, affordable, and reliable laundry services.</p>
+      <div class="btn-row">
+        <a href="https://forms.gle/nGrGbZTskBc4FCQr9"
+           target="_blank"
+           class="btn">Laundry Services</a>
+
+        <a href="https://wa.me/27700000000?text=Hi%20Sebanang%2C%20I%20would%20like%20to%20book%20a%20service"
+           target="_blank"
+           class="whatsapp-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path d="M19.11 17.36c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.17-.43-2.23-1.37-.82-.73-1.37-1.63-1.53-1.91-.16-.28-.02-.43.12-.57.13-.13.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.35-.25.28-.96.94-.96 2.29s.98 2.66 1.12 2.85c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.64-.67 1.87-1.31.23-.64.23-1.19.16-1.31-.07-.12-.25-.2-.53-.34z"/>
+            <path d="M16 3C8.82 3 3 8.82 3 16c0 2.55.74 5.02 2.13 7.14L3 29l5.99-2.07A12.94 12.94 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm0 23.5c-2.24 0-4.44-.6-6.36-1.74l-.46-.27-3.55 1.23 1.17-3.46-.3-.48A10.44 10.44 0 015.5 16C5.5 10.21 10.21 5.5 16 5.5S26.5 10.21 26.5 16 21.79 26.5 16 26.5z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+
   </section>
 
-  <div class="container">
-    <section class="services" id="services">
-      <div class="card">
-        <h3>🚗 Car Wash</h3>
-        <p>Professional exterior and interior cleaning using modern equipment to keep your car spotless.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScPkSDHXUVKl_V0_Wf-sjanG_BprO16FvWS07PpimpGZ7iZEA/viewform?usp=publish-editor" target="_blank" class="btn">Book a Wash</a>
-        <a
-  href="https://wa.me/27700000000?text=Hi%20Sebanang%2C%20I%20would%20like%20to%20book%20a%20service"
-  target="_blank"
->
-  <button class="btn whatsapp-btn">WhatsApp Booking</button>
-</a>
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>We are a modern service center offering essential everyday services under one roof.</p>
+  </section>
 
-      </div>
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> 071 234 5678</p>
+    <p><strong>Email:</strong> info@allinoneservices.co.za</p>
+    <p><strong>Location:</strong> Phalaborwa – Namakgale, Maputha Drive</p>
 
-      <div class="card">
-        <h3>🏋️ Gymnasium</h3>
-        <p>Fully equipped gym with cardio, strength training, and personal fitness programs.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfnoPlZIE7aD4HCt6qC0_lVDLkTlIxXypWCl140vFLP2h_fYQ/viewform?usp=header" class="btn">Join the Gymnasium</a>
-      </div>
+    <div class="btn-row">
+      <a href="https://www.google.com/maps?q=Sebanang+Car+Wash+Namakgale" target="_blank" class="btn">Live Location</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Sebanang+Car+Wash+Namakgale" target="_blank" class="btn">Get Directions</a>
+    </div>
+  </section>
 
-      <div class="card">
-        <h3>🧺 Laundry</h3>
-        <p>Fast, affordable, and reliable laundry services for individuals and families.</p>
-        <a href="https://forms.gle/nGrGbZTskBc4FCQr9" class="btn">Laundry Services</a>
-      </div>
-    </section>
+</div>
 
-    <section class="about" id="about">
-      <h2>About Us</h2>
-      <p>
-        We are a modern service center offering essential everyday services under one roof.
-        Our goal is to save you time while delivering top-quality results.
-      </p>
-    </section>
-
-    <section class="contact" id="contact">
-      <h2>Contact Us</h2>
-     <button class="btn" onclick="openLiveLocation()">Live Location</button>
-     <button class="btn" onclick="openDirections()">Get Directions</button>
-
-
-
-
-      <p><strong>Phone:</strong> 071 234 5678</p>
-      <p><strong>Email:</strong> info@allinoneservices.co.za</p>
-      <p><strong>Location:</strong> Phalaborwa – Namakgale, Maputha Drive</p>
-
-    </section>
-  </div>
-
-  <footer>
-    <p>© 2026 Sebanang Service Center. All rights reserved.</p>
-  </footer>
-  <script>
-function openLiveLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      function(position) {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-
-        const mapUrl = `https://www.google.com/maps?q=${lat},${lon}`;
-        window.open(mapUrl, "_blank");
-      },
-      function() {
-        alert("Location permission denied. Please enable location.");
-      }
-    );
-  } else {
-    alert("Geolocation not supported on this browser.");
-  }
-}
-</script>
-
-<script>
-function openDirections() {
-  const destination = "Sebanang Car Wash";
-  const url =
-    "https://www.google.com/maps/dir/?api=1&destination=" +
-    encodeURIComponent(destination);
-
-  window.open(url, "_blank");
-}
-</script>
-<script>
-const SEBANANG_ADDRESS = "Phalaborwa Namakgale Maputha Drive";
-
-function openLiveLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      function(position) {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        window.open(`https://www.google.com/maps?q=${lat},${lon}`, "_blank");
-      },
-      function() {
-        alert("Location permission denied.");
-      }
-    );
-  } else {
-    alert("Geolocation not supported.");
-  }
-}
-
-function openDirections() {
-  const url =
-    "https://www.google.com/maps/dir/?api=1&destination=" +
-    encodeURIComponent(SEBANANG_ADDRESS);
-
-  window.open(url, "_blank");
-}
-</script>
+<footer>
+  <p>© 2026 Sebanang Service Center. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
