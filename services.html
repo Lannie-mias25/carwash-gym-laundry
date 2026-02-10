@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Sebanang</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #1f2937;
+    }
+
+    /* NAVBAR */
+    header {
+      background: #0f172a;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      margin: 0 14px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* PAGE TITLE */
+    .page-title {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #2563eb, #0ea5e9);
+      color: white;
+    }
+
+    .page-title h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    /* SERVICES GRID */
+    .services-container {
+      max-width: 1100px;
+      margin: 80px auto; /* pushes cards away from navbar */
+      padding: 0 20px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    /* FLIP CARD */
+    .service-card {
+      perspective: 1000px;
+      height: 320px;
+    }
+
+    .service-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+      cursor: pointer;
+    }
+
+    .service-card:hover .service-inner {
+      transform: rotateY(180deg);
+    }
+
+    .service-front,
+    .service-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    /* FRONT SIDE */
+    .service-front {
+      display: flex;
+      align-items: flex-end;
+      padding: 25px;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.55);
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+
+    /* BACK SIDE */
+    .service-back {
+      background: white;
+      transform: rotateY(180deg);
+      padding: 30px;
+    }
+
+    .service-back h3 {
+      margin-top: 0;
+      color: #2563eb;
+    }
+
+    .price-list {
+      margin-top: 15px;
+      line-height: 1.8;
+    }
+
+    /* BACKGROUND IMAGES */
+    .carwash {
+      background-image: url("https://images.unsplash.com/photo-1607860108855-64acf2078ed9");
+    }
+
+    .gym {
+      background-image: url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1");
+    }
+
+    .laundry {
+      background-image: url("https://images.unsplash.com/photo-1582735689369-4fe89db7114c");
+    }
+
+    /* FOOTER SPACE FILL */
+    .bottom-space {
+      height: 120px;
+    }
+    
+    .footer-bar {
+  background: #0f172a;
+  color: #e5e7eb;
+  text-align: center;
+  padding: 20px 10px;
+  margin-top: 80px;
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- TITLE -->
+  <section class="page-title">
+    <h1>Our Services</h1>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-container">
+    <div class="services-grid">
+
+      <!-- CAR WASH -->
+      <div class="service-card">
+        <div class="service-inner">
+          <div class="service-front carwash">
+            <div class="overlay">Car Wash</div>
+          </div>
+          <div class="service-back">
+            <h3>Car Wash Prices</h3>
+            <div class="price-list">
+              Exterior Wash – R60<br/>
+              Interior + Exterior – R120<br/>
+              Full Valet – R180
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GYM -->
+      <div class="service-card">
+        <div class="service-inner">
+          <div class="service-front gym">
+            <div class="overlay">Gymnasium</div>
+          </div>
+          <div class="service-back">
+            <h3>Gym Membership</h3>
+            <div class="price-list">
+              Daily Pass – R40<br/>
+              Monthly – R300<br/>
+              Personal Training – R500
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAUNDRY -->
+      <div class="service-card">
+        <div class="service-inner">
+          <div class="service-front laundry">
+            <div class="overlay">Laundry</div>
+          </div>
+          <div class="service-back">
+            <h3>Laundry Prices</h3>
+            <div class="price-list">
+              Small Load – R80<br/>
+              Medium Load – R120<br/>
+              Large Load – R160
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="bottom-space"></div>
+  <footer class="footer-bar">
+  © 2026 Sebanang Services. All rights reserved.
+</footer>
+
+
+</body>
+</html>
